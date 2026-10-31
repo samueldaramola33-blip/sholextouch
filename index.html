@@ -10,6 +10,9 @@
 <meta property="og:title" content="Sholex Touch | Frontal Installs in Lekki">
 <meta property="og:description" content="Walk-in and booking, Mon to Sat, 9am to 9pm.">
 <link rel="preload" as="image" href="images/hero.webp" fetchpriority="high">
+<link rel="preload" as="image" href="images/svc-frontal.webp">
+<link rel="preload" as="image" href="images/svc-closure.webp">
+<link rel="preload" as="image" href="images/svc-revamp.webp">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -169,8 +172,8 @@ const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&qu
 const $=id=>document.getElementById(id);
 let st={c:[],d:null,t:null,ok:null},f='all';
 
-$('svc').innerHTML=S.map((s,i)=>`<article class="card rv" style="transition-delay:${(i%3)*.1}s"><div class="overflow-hidden rounded-[18px]" style="aspect-ratio:4/4.6"><img src="${IM[s.id]}" alt="${s.n}" loading="lazy" decoding="async" width="330" height="402" class="w-full h-full object-cover object-top"></div><div class="px-3 pt-5"><div class="flex justify-between items-baseline gap-3"><h3 class="sf text-[27px] leading-tight">${s.n}</h3><span class="text-gold font-medium whitespace-nowrap">${N(s.p)}</span></div><p class="text-mute text-[14px] leading-[1.8] mt-2">${s.t}</p><div class="flex justify-between items-center mt-5"><span class="text-xs text-mute">${s.d}</span><button class="pill !py-3 !px-6" data-book="${s.id}">Book Now</button></div></div></article>`).join('');
-function gal(){$('gal').innerHTML=G.filter(g=>f==='all'||g[1]===f).map(g=>`<a href="https://www.instagram.com/sholex_touch/" target="_blank" rel="noopener" class="tile relative block overflow-hidden rounded-xl md:rounded-3xl group" style="aspect-ratio:4/5"><img src="${IM[g[0]]}" alt="${g[2]} by Sholex Touch" loading="lazy" decoding="async" width="330" height="402" class="w-full h-full object-cover object-top"><span class="absolute inset-x-0 bottom-0 p-3 md:p-5 text-xs text-white opacity-0 group-hover:opacity-100 transition duration-500" style="background:linear-gradient(transparent,rgba(17,17,17,.55))">${g[2]}</span></a>`).join('')}
+$('svc').innerHTML=S.map((s,i)=>`<article class="card rv" style="transition-delay:${(i%3)*.1}s"><div class="overflow-hidden rounded-[18px]" style="aspect-ratio:4/4.6"><img src="${IM[s.id]}" alt="${s.n}" decoding="async" width="330" height="402" class="w-full h-full object-cover object-top"></div><div class="px-3 pt-5"><div class="flex justify-between items-baseline gap-3"><h3 class="sf text-[27px] leading-tight">${s.n}</h3><span class="text-gold font-medium whitespace-nowrap">${N(s.p)}</span></div><p class="text-mute text-[14px] leading-[1.8] mt-2">${s.t}</p><div class="flex justify-between items-center mt-5"><span class="text-xs text-mute">${s.d}</span><button class="pill !py-3 !px-6" data-book="${s.id}">Book Now</button></div></div></article>`).join('');
+function gal(){$('gal').innerHTML=G.filter(g=>f==='all'||g[1]===f).map(g=>`<a href="https://www.instagram.com/sholex_touch/" target="_blank" rel="noopener" class="tile relative block overflow-hidden rounded-xl md:rounded-3xl group" style="aspect-ratio:4/5"><img src="${IM[g[0]]}" alt="${g[2]} by Sholex Touch" decoding="async" width="330" height="402" class="w-full h-full object-cover object-top"><span class="absolute inset-x-0 bottom-0 p-3 md:p-5 text-xs text-white opacity-0 group-hover:opacity-100 transition duration-500" style="background:linear-gradient(transparent,rgba(17,17,17,.55))">${g[2]}</span></a>`).join('')}
 $('chips').innerHTML=CH.map(c=>`<button class="chip ${c[0]==='all'?'on':''}" data-f="${c[0]}">${c[1]}</button>`).join('');
 $('chips').addEventListener('click',e=>{const b=e.target.closest('[data-f]');if(!b)return;f=b.dataset.f;document.querySelectorAll('.chip').forEach(x=>x.classList.toggle('on',x===b));gal()});
 gal();
